@@ -77,7 +77,9 @@ CREATE TABLE sales_transaction (
   discount NUMBER(5),
   payment_method VARCHAR2(10),
   cart_id NUMBER(5),
-  CONSTRAINT fk_tran_cart FOREIGN KEY (cart_id) REFERENCES customer_cart(cust_id)
+  user_id VARCHAR2(20),
+  CONSTRAINT fk_tran_cart FOREIGN KEY (cart_id) REFERENCES customer_cart(cust_id),
+  CONSTRAINT fk_user_trans FOREIGN KEY (user_id) REFERENCES inv_user(user_id)
 );
 
 -- INVOICE TABLE
